@@ -144,10 +144,6 @@ namespace
 
          int commandId = wxID_NONE;
 
-#if defined(__WXMSW__) || defined(__WXMAC__)
-         menu.AppendSeparator();
-         menu.Append(wxID_MORE, _("Get more effects..."));
-#endif
          menu.Bind(wxEVT_MENU, [&](wxCommandEvent evt) { commandId = evt.GetId(); });
 
          if(parent->PopupMenu(&menu, parent->GetClientRect().GetLeftBottom()) && commandId != wxID_NONE)

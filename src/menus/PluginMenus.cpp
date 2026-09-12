@@ -361,14 +361,14 @@ auto EffectMenu()
          Command(
             wxT("AddRealtimeEffects"), XXO("Add Realtime Effects"),
             OnAddRealtimeEffects, HasTrackFocusFlag(), wxT("E"))
-#if defined(__WXMSW__) || defined(__WXMAC__)
-         , Command(
-            wxT("GetMoreEffects"), XXO("Get more effects..."),
-            [](const CommandContext&) {
-               GetEffectsHelper::Get().GetEffects();
-            },
-            AlwaysEnabledFlag)
-#endif
+//#if defined(__WXMSW__) || defined(__WXMAC__)
+//         , Command(
+//            wxT("GetMoreEffects"), XXO("Get more effects..."),
+//            [](const CommandContext&) {
+//               GetEffectsHelper::Get().GetEffects();
+//            },
+//            AlwaysEnabledFlag)
+//#endif
             ),
       Section(
          "RepeatLast",
