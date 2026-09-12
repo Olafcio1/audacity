@@ -62,7 +62,7 @@ hold information about one contributor to Audacity.
 #endif
 
 #ifdef REV_LONG
-#define REV_IDENT wxString( "[[https://github.com/audacity/audacity/commit/" )+ REV_LONG + "|" + wxString( REV_LONG ).Left(6) + "]] of " +  REV_TIME
+#define REV_IDENT wxString( "[[https://github.com/Olafcio1/audacity/commit/" )+ REV_LONG + "|" + wxString( REV_LONG ).Left(6) + "]] of " +  REV_TIME
 #else
 #define REV_IDENT (XO("No revision identifier was provided").Translation())
 #endif
@@ -143,6 +143,10 @@ void AboutDialog::CreateCreditsList()
    AddCredit(wxT("Leo Wattenberg"), designerFormat, roleTeamMember);
    AddCredit(wxT("Jessica Williamson"), designerFormat, roleTeamMember);
    AddCredit(wxT("Grzegorz Wojciechowski"), developerFormat, roleTeamMember);
+
+
+   // The fork
+   AddCredit(wxT("Olafcio1"), developerFormat, roleForkMember);
 
 
    // Emeritus: people who were "lead developers" or made an
@@ -396,6 +400,12 @@ void AboutDialog::PopulateAudacityPage( ShuttleGui & S )
       << XO("%s Team Members").Format( ProgramName )
       << wxT("</b><br>")
       << GetCreditsByRole(roleTeamMember)
+
+      << wxT("<p><b>")
+      /* i18n-hint: The program's name substitutes for %s */
+      << XO("%s Fork Members").Format( ProgramName )
+      << wxT("</b><br>")
+      << GetCreditsByRole(roleForkMember)
 
       << wxT("<p><b> ")
       << XO("Emeritus:")
